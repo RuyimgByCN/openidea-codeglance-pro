@@ -1,6 +1,6 @@
 # CodeGlance Pro for OpenIDEA
 
-A CodeGlance Pro-style editor minimap plugin built for OpenIDEA's `editorPanels` API (`^1.10`).
+A CodeGlance Pro-style editor minimap plugin built for OpenIDEA's `editorPanels` API (`^1.14`, OpenIDEA `v0.1.50+`).
 
 ## Features
 
@@ -15,15 +15,27 @@ A CodeGlance Pro-style editor minimap plugin built for OpenIDEA's `editorPanels`
   - `CodeGlance Pro: Toggle Hover Code Lens`
   - **Settings › Plugins › CodeGlance Pro**
 
-## Build & Install from Disk
+## Permissions (Zero High-Risk Grants)
 
-1. Build the Wasm component and run tests:
+| Capability | Kind | Purpose |
+| --- | --- | --- |
+| `editor.read` | required (low) | Read focused editor text, syntax highlights, folds, soft-wrap layout, problems, selections, and VCS change markers. |
+| `storage` | required (low) | Persist quick-toggle overrides (`hidden`, `cleanMode`, `showHoverLens`) across sessions. |
+| `events` | required (low) | Subscribe to `settings-changed` events to keep minimap configuration synchronized in real time. |
 
-   ```bash
+No `net:*`, `process:*`, `fs.*`, `project.*`, or `ide.commands` permissions are requested.
+
+## Build & Package
+
+1. Run tests, build the Wasm component, and validate the package:
+
+   ```sh
+   node --test tests/layout.test.mjs
    cargo test
    cargo build --release --target wasm32-wasip2
    mkdir -p dist && cp target/wasm32-wasip2/release/codeglance_pro.wasm dist/plugin.wasm
-   node --test web/layout.test.mjs
+   openidea-plugin check .
+   openidea-plugin pack . --key <key> --publisher ruyimg
    ```
 
-2. In OpenIDEA, open **Settings › Plugins › ⚙ › Install Plugin from Disk…** and select this directory (or archive).
+2. In OpenIDEA, install from Marketplace or open **Settings › Plugins › ⚙ › Install Plugin from Package File…** and select `ruyimg.codeglance-pro-0.1.0.oiplugin`.

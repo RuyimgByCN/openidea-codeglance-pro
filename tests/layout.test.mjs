@@ -7,7 +7,7 @@ import {
   expandTabColumns,
   extractRegions,
   sliceHoverLens,
-} from "./layout.mjs";
+} from "../web/layout.mjs";
 
 test("expandTabColumns aligns tab stops accurately", () => {
   const xOf = expandTabColumns("\tfoo\tbar", 4);
