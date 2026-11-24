@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CodeGlance Pro</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="map" aria-label="CodeGlance Pro Minimap"></canvas>
+
+    <div id="empty" class="empty" hidden></div>
+
+    <div id="hud" class="hud" aria-label="Quick controls">
+      <button id="btn-clean" type="button" class="hud-btn" title="Toggle Clean Mode" aria-pressed="true">C</button>
+      <button id="btn-lens" type="button" class="hud-btn" title="Toggle Hover Code Lens" aria-pressed="true">L</button>
+    </div>
+
+    <aside id="lens" class="lens" hidden aria-live="off">
+      <header id="lens-header" class="lens-header"></header>
+      <div id="lens-lines" class="lens-lines"></div>
+    </aside>
+
+    <script type="module" src="./minimap.mjs"></script>
+  </body>
+</html>

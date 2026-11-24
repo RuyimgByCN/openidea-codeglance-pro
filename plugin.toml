@@ -1,0 +1,41 @@
+id = "ruyimg.codeglance-pro"
+name = "CodeGlance Pro"
+version = "0.1.0"
+description = "CodeGlance Pro-style editor minimap for OpenIDEA: syntax and semantic code overview, docked hover code lens with common-indent trimming, region comments, folding and soft-wrap sync, VCS change gutter, diagnostics markers, and quick toggles."
+authors = ["ruyimg"]
+license = "Apache-2.0"
+change-notes = "0.1.0 — initial release: syntax/semantic minimap, docked hover code lens, region comment markers, Clean Mode & monochrome/accent palettes, folding and soft-wrap sync, VCS/problem/selection markers, and quick toggles."
+categories = ["tools"]
+engines.openidea = "^1.10"
+wasm = "dist/plugin.wasm"
+icon = "icons/icon.svg"
+icon-dark = "icons/icon_dark.svg"
+activation = ["on-view:minimap", "on-command:*", "on-event:settings-changed", "on-startup-finished"]
+
+[capabilities]
+required = ["editor.read", "storage", "events"]
+
+[[contributes.editorPanels]]
+id = "minimap"
+web = "web/index.html"
+width = 120
+when = "!plugin.ruyimg.codeglance-pro.hidden"
+
+[[contributes.commands]]
+id = "toggle"
+title = "CodeGlance Pro: Toggle Minimap"
+category = "CodeGlance Pro"
+
+[[contributes.commands]]
+id = "toggle-clean"
+title = "CodeGlance Pro: Toggle Clean Mode"
+category = "CodeGlance Pro"
+
+[[contributes.commands]]
+id = "toggle-hover-lens"
+title = "CodeGlance Pro: Toggle Hover Code Lens"
+category = "CodeGlance Pro"
+
+[contributes.settings]
+title = "CodeGlance Pro"
+schema = "settings.schema.json"

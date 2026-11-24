@@ -1,0 +1,85 @@
+{
+  "properties": {
+    "enabled": {
+      "type": "boolean",
+      "title": "Show minimap",
+      "description": "Display the CodeGlance Pro minimap beside text editors.",
+      "default": true
+    },
+    "pixelsPerLine": {
+      "type": "string",
+      "title": "Pixels per line",
+      "description": "Height of each logical/visual line row in the minimap (2, 3, or 4 px).",
+      "enum": ["2", "3", "4"],
+      "default": "3"
+    },
+    "cleanMode": {
+      "type": "boolean",
+      "title": "Clean mode",
+      "description": "Draw crisp block glyphs instead of noisy character sub-dots.",
+      "default": true
+    },
+    "renderMode": {
+      "type": "string",
+      "title": "Color mode",
+      "description": "Color tokens from editor syntax/semantic highlighting, a muted neutral tint, or the IDE accent color.",
+      "enum": ["syntax", "monochrome", "accent"],
+      "default": "syntax"
+    },
+    "viewportStyle": {
+      "type": "string",
+      "title": "Viewport indicator style",
+      "description": "How the currently visible editor region is framed inside the minimap.",
+      "enum": ["shaded", "outline", "minimal"],
+      "default": "shaded"
+    },
+    "showHoverLens": {
+      "type": "boolean",
+      "title": "Show hover code lens",
+      "description": "Show a docked, common-indent-trimmed code preview when hovering over the minimap.",
+      "default": true
+    },
+    "hoverLensLines": {
+      "type": "integer",
+      "title": "Hover code lens lines",
+      "description": "Number of lines shown inside the hover code lens preview (5–21).",
+      "default": 9
+    },
+    "showVcsChanges": {
+      "type": "boolean",
+      "title": "Show VCS change markers",
+      "description": "Draw added, modified, and deleted Git change bars along the left edge.",
+      "default": true
+    },
+    "showProblems": {
+      "type": "boolean",
+      "title": "Show problem markers",
+      "description": "Draw error, warning, and weak-warning stripes along the right edge.",
+      "default": true
+    },
+    "showSelections": {
+      "type": "boolean",
+      "title": "Show caret and selections",
+      "description": "Highlight the active caret line and selected ranges in the minimap.",
+      "default": true
+    },
+    "showRegionComments": {
+      "type": "boolean",
+      "title": "Show region section markers",
+      "description": "Highlight `// region <name>` and `// MARK: <name>` dividers inside the minimap.",
+      "default": true
+    },
+    "autoHideShortFiles": {
+      "type": "integer",
+      "title": "Auto-hide for short files (lines)",
+      "description": "Hide minimap rendering when a file has fewer than this many lines (0 disables auto-hide).",
+      "default": 0
+    },
+    "maxLines": {
+      "type": "integer",
+      "title": "Max lines to render",
+      "description": "Skip per-line token drawing in very large files above this line count while keeping viewport, problems, and VCS bars active.",
+      "default": 50000
+    }
+  }
+}
